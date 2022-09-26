@@ -228,7 +228,7 @@ public class EllenControl : MonoBehaviour
 
     private void CheckWall(Vector2 direction)
     {
-        // only move if the direction is not zero
+        // only check if the direction is not zero
         if (!Mathf.Approximately(direction.x, 0))
         {
             RaycastHit2D boxCastHit;
