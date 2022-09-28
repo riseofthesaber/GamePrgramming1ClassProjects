@@ -39,8 +39,14 @@ public class LaraControler : MonoBehaviour
     [SerializeField]
     private float jumpForce;
 
+    [Header("how many wall jumps you get")]
     [SerializeField]
     private float wallJumps = 1 ;
+
+    [Header("multiplies the horizontal jump force added from a wall jump by this value")]
+    [SerializeField]
+    private float wallJumpXForceMultiplier = 1.5f;
+
     private float wallJumpsUsed = 0;
     // maximum velocity total
     [SerializeField]
@@ -207,11 +213,11 @@ public class LaraControler : MonoBehaviour
                 //Debug.Log("WallJump");
                 if (SpriteRenderer.flipX)
                 {
-                    body.AddForce((Vector2.up + (Vector2.right * 1.5f)) * jumpForce, ForceMode2D.Impulse);
+                    body.AddForce((Vector2.up + (Vector2.right * wallJumpXForceMultiplier)) * jumpForce, ForceMode2D.Impulse);
                 }
                 else
                 {
-                    body.AddForce((Vector2.up + (Vector2.left * 1.5f)) * jumpForce, ForceMode2D.Impulse);
+                    body.AddForce((Vector2.up + (Vector2.left * wallJumpXForceMultiplier)) * jumpForce, ForceMode2D.Impulse);
                 }
                 animator.SetTrigger("Jump");
                 wallJumpsUsed++;
@@ -220,7 +226,7 @@ public class LaraControler : MonoBehaviour
         }
         else if (context.canceled)
         {// if she is jumping
-            Debug.Log("test");
+            //Debug.Log("test");
             if (body.velocity.y > 0)
             {
                 // cancle the jump force by half
