@@ -2,6 +2,96 @@
     "name": "UI_Input",
     "maps": [
         {
+            "name": "Player",
+            "id": "225edf1d-7871-4962-b578-db5d9bed04f9",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "bdce5d26-8ff2-4095-8170-c6865f0b4eab",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Increase Life",
+                    "type": "Button",
+                    "id": "3175217a-1daf-4d8a-b35b-d2dd148450b5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Decrease Life",
+                    "type": "Button",
+                    "id": "e31fc6e9-beee-4331-bf2e-5f04de5085c8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "28194238-f08c-4ad1-9591-e916890b6375",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "724edde4-d9c8-4e2d-87aa-411f77de35c3",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Increase Life",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e223d9ca-96c6-4b97-8473-6a9b216f8b96",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Increase Life",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d0ef3ffc-3984-4540-956e-4f8815aa784e",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Decrease Life",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9e29a661-eeae-4978-a913-0ca7c3a72f56",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Decrease Life",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "UI",
             "id": "db53416f-3a85-49f7-9a6d-3fd90dffda24",
             "actions": [
@@ -91,24 +181,6 @@
                     "type": "PassThrough",
                     "id": "348de1a7-73e0-4647-9c1a-8bf3378794d1",
                     "expectedControlType": "Quaternion",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Increase Life",
-                    "type": "Button",
-                    "id": "a88c736d-578c-4b73-a019-75c654ab47fa",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Decrease Life",
-                    "type": "Button",
-                    "id": "dbcc791b-266a-4c3d-8133-bc97d67070f5",
-                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -530,28 +602,6 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "621d81f9-630d-4d24-bd7d-053abb0f6a66",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Increase Life",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bf5761e5-9fff-462a-9c3f-d392b058136b",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Decrease Life",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

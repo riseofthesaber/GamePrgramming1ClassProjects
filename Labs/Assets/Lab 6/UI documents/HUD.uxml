@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement name="root" style="align-items: stretch; height: 100%; width: 100%; flex-direction: row; flex-grow: 1;">
-        <ui:VisualElement name="Lives" style="height: 10%; width: 50%;" />
+        <ui:VisualElement name="Lives" style="height: 10%; width: 50%; flex-direction: row;" />
         <ui:VisualElement name="Timer" style="height: 10%; width: 50%; flex-direction: row;">
             <ui:Label text="Time Remaining:" display-tooltip-when-elided="true" style="width: 176px;" />
             <ui:Label text="Label" display-tooltip-when-elided="true" />

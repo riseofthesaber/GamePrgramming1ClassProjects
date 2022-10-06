@@ -19,6 +19,7 @@ public class HUDController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Start");
         VisualElement root = UIDoc.rootVisualElement;
 
         heartsContainer = root.Q<VisualElement>("Lives");
@@ -34,50 +35,75 @@ public class HUDController : MonoBehaviour
         NumLives--;
         UpdateHearts(heartsContainer);
     }
+    // these dont work for some reason, idk, i have tried everything i can tink of. i know it can read the keys beigh pressed because the other one works
+    //i just dont know whare the disconeect i appening in unity with the input actions
     public void AddLife(InputAction.CallbackContext context) {
-
         LifeUp();
+        if (context.performed)
+        {
+            Debug.Log("go up");
+        }
     }
     public void RemoveLife(InputAction.CallbackContext context) {
         LifeDown();
+        if (context.performed)
+        {
+            Debug.Log("go down");
+        }
     }
 
-    private void UpdateHearts(VisualElement heartsContainer)
+    private void UpdateHearts(VisualElement HeartsContainer)
     {
-        int numCurrent = heartsContainer.childCount;
-        Image heart = new Image();
-        heart.sprite = HeartImage;
-        heart.style.paddingTop = 5;
-        heart.style.paddingLeft = 0;
-        heart.style.paddingRight = 0;
-        heart.style.width = 64;
-        heart.style.height = 64;
-        heart.style.flexGrow = 0;
-        heart.style.flexShrink = 0;
+        int numCurrent = HeartsContainer.childCount;
 
-        while (numCurrent != NumLives)
+
+
+        if (NumLives < 0)
         {
-            if(NumLives<0)
-            {
-                Debug.LogError("cannot have a negative amount of lives, setting lives to 0");
-                NumLives = 0;
-                break;
-            }
-            if( NumLives < numCurrent)
-            {
-                heartsContainer.RemoveAt(numCurrent);
-            }
-            else
-            {
-                heartsContainer.Add(heart);
-            }
+            Debug.LogError("cannot have a negative amount of lives, setting lives to 0");
+            NumLives = 0;
+            return;
         }
 
+                while (numCurrent > NumLives)
+                {
+
+                    heartsContainer.RemoveAt(numCurrent-1);
+                    numCurrent = HeartsContainer.childCount;
+
+                }
+         while (numCurrent < NumLives)
+        {
+            Image heart = new Image();
+            heart.sprite = HeartImage;
+            heart.style.paddingTop = 5;
+            heart.style.paddingLeft = 0;
+            heart.style.paddingRight = 0;
+            heart.style.width = 64;
+            heart.style.height = 64;
+            heart.style.flexGrow = 0;
+            heart.style.flexShrink = 0;
+            //Debug.Log("go");
+            heartsContainer.Add(heart);
+            numCurrent = HeartsContainer.childCount;
+        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Keyboard kb = Keyboard.current;
+
+        if (kb.digit1Key.wasPressedThisFrame)
+        {
+            LifeUp();
+            //Debug.Log("heh");
+        }
+        if (kb.digit2Key.wasPressedThisFrame)
+        {
+            LifeDown();
+            //Debug.Log("kek");
+        }
     }
 }

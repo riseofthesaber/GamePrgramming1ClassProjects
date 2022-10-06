@@ -373,37 +373,17 @@ MonoBehaviour:
     m_ActionId: 348de1a7-73e0-4647-9c1a-8bf3378794d1
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 490163535}
-        m_TargetAssemblyTypeName: HUDController, Assembly-CSharp
-        m_MethodName: AddLife
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: a88c736d-578c-4b73-a019-75c654ab47fa
-    m_ActionName: UI/Increase Life[/Keyboard/upArrow]
+      m_Calls: []
+    m_ActionId: bdce5d26-8ff2-4095-8170-c6865f0b4eab
+    m_ActionName: Player/New action
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 490163535}
-        m_TargetAssemblyTypeName: HUDController, Assembly-CSharp
-        m_MethodName: RemoveLife
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: dbcc791b-266a-4c3d-8133-bc97d67070f5
-    m_ActionName: UI/Decrease Life[/Keyboard/downArrow]
+      m_Calls: []
+    m_ActionId: 3175217a-1daf-4d8a-b35b-d2dd148450b5
+    m_ActionName: Player/Increase Life[/Keyboard/upArrow,/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e31fc6e9-beee-4331-bf2e-5f04de5085c8
+    m_ActionName: Player/Decrease Life[/Keyboard/downArrow,/Keyboard/s]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
