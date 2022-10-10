@@ -3,7 +3,7 @@
         <ui:VisualElement name="Lives" style="height: 10%; width: 50%; flex-direction: row;" />
         <ui:VisualElement name="Timer" style="height: 10%; width: 50%; flex-direction: row;">
             <ui:Label text="Time Remaining:" display-tooltip-when-elided="true" style="width: 176px;" />
-            <ui:Label text="Label" display-tooltip-when-elided="true" />
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="time-left" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -6,7 +6,7 @@
             "id": "225edf1d-7871-4962-b578-db5d9bed04f9",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Pause",
                     "type": "Button",
                     "id": "bdce5d26-8ff2-4095-8170-c6865f0b4eab",
                     "expectedControlType": "Button",
@@ -37,11 +37,11 @@
                 {
                     "name": "",
                     "id": "28194238-f08c-4ad1-9591-e916890b6375",
-                    "path": "",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "New action",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -181,6 +181,15 @@
                     "type": "PassThrough",
                     "id": "348de1a7-73e0-4647-9c1a-8bf3378794d1",
                     "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Resume",
+                    "type": "Button",
+                    "id": "44dfe780-7649-4177-999e-f18072b1a9fc",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -602,6 +611,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "db63b76a-7d73-4cd9-94f8-c71005827cd7",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Resume",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
