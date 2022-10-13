@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Documents/PauseMenu.uss?fileID=7433441132597879392&amp;guid=45ed8fd743a351f4c97a1c051505f973&amp;type=3#PauseMenu" />
+    <ui:VisualElement name="root" style="width: 100%; height: 100%; justify-content: center; align-items: center; background-image: url(&apos;project://database/Assets/Sprites/UI/MMBackground.png?fileID=2800000&amp;guid=f4aaf9a19df9c2540a361863de75b559&amp;type=3#MMBackground&apos;); -unity-background-image-tint-color: rgb(255, 255, 255);">
+        <ui:VisualElement name="VisualElement" style="width: 90%; height: 90%; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; -unity-background-image-tint-color: rgba(255, 255, 255, 0.48); background-color: rgba(168, 0, 161, 0.51); margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; border-left-color: rgb(74, 74, 74); border-right-color: rgb(74, 74, 74); border-top-color: rgb(74, 74, 74); border-bottom-color: rgb(74, 74, 74); border-left-width: 10px; border-right-width: 10px; border-top-width: 10px; border-bottom-width: 10px; border-top-left-radius: 40px; border-bottom-left-radius: 40px; border-top-right-radius: 40px; border-bottom-right-radius: 40px; align-items: center; justify-content: center;">
+            <ui:Label text="Congratulations, &#10;You won!" display-tooltip-when-elided="true" style="font-size: 75%; width: 50%; height: 25%; -unity-text-align: middle-center; -unity-font-style: bold; white-space: nowrap;" />
+            <ui:Button text="Main Menu" display-tooltip-when-elided="true" name="Menu" class="Pause-button" style="font-size: 100%;" />
+            <ui:Button text="Quit" display-tooltip-when-elided="true" name="Quit" class="Pause-button" style="font-size: 100%;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

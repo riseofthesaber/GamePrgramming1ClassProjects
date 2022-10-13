@@ -11,12 +11,13 @@ public class SawMove : MonoBehaviour
     [SerializeField] private float moveTime = 2f;
 
     [SerializeField] private bool sawMoving = true;
+    [SerializeField] private bool Vertical = true;
 
     [SerializeField] private Rigidbody2D enemyRigidbody;
 
     private enum Direction
     {
-        Up, Down
+        Up, Down, Left, Right
     }
     private Direction moveDirection;
 
@@ -32,6 +33,12 @@ public class SawMove : MonoBehaviour
             case Direction.Down:
                 targetPosition -= Vector2.up * moveSpeed * Time.fixedDeltaTime;
                 break;
+            case Direction.Right:
+                targetPosition += Vector2.right * moveSpeed * Time.fixedDeltaTime;
+                break;
+            case Direction.Left:
+                targetPosition -= Vector2.right * moveSpeed * Time.fixedDeltaTime;
+                break;
         }
 
         enemyRigidbody.MovePosition(targetPosition);
@@ -39,15 +46,26 @@ public class SawMove : MonoBehaviour
 
     private void switchMoveDirection()
     {
+        if (!Vertical) {
+            if (moveDirection == Direction.Right)
+            {
+                moveDirection = Direction.Left;
 
-        if (moveDirection == Direction.Up)
-        {
-            moveDirection = Direction.Down;
+            }
+            else
+            {
+                moveDirection = Direction.Right;
+            }
+        } else {
+            if (moveDirection == Direction.Up)
+            {
+                moveDirection = Direction.Down;
 
-        }
-        else
-        {
-            moveDirection = Direction.Up;
+            }
+            else
+            {
+                moveDirection = Direction.Up;
+            }
         }
     }
 
@@ -73,6 +91,7 @@ public class SawMove : MonoBehaviour
 
     void Start()
     {
+        if (!Vertical) { moveDirection = Direction.Right; }
         StartCoroutine(sawMove());
     }
 
@@ -81,4 +100,6 @@ public class SawMove : MonoBehaviour
     {
         
     }
+
+
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Editor;
+using UnityEngine.SceneManagement;
 
 public class LaraControler : MonoBehaviour
 {
@@ -24,6 +25,12 @@ public class LaraControler : MonoBehaviour
 
     [SerializeField]
     private LayerMask wallLayerMask;
+
+    [SerializeField]
+    private SFXPlayer SFX_player;
+
+    [SerializeField]
+    private AudioSource MusicSource;
 
     private Vector2 moveInput;
 
@@ -59,15 +66,21 @@ public class LaraControler : MonoBehaviour
     [SerializeField]
     private float frictionAmount;
 
+    private string currentPortalScene;
+
 
     // creating a property for maxforce
     public float MoveSpeed { get { return maxMoveSpeed; } set { maxMoveSpeed = value; } }
 
     private float moveForce;
 
+    private bool wasGroundedLastFrame;
+
     private bool isGrounded;
 
     private bool onWall;
+
+    private bool onDoor = false;
 
     private void Awake()
     {
@@ -167,8 +180,12 @@ public class LaraControler : MonoBehaviour
     private void CheckGrounded()
     {
         RaycastHit2D GroundCast = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, .1f, environmentLayerMask);
-
+        wasGroundedLastFrame = isGrounded;
         isGrounded = (GroundCast.collider != null);
+        if ((!wasGroundedLastFrame) && isGrounded)
+        {
+            SFX_player.playLanding();
+        }
         //Debug.Log("ground");
         animator.SetBool("Grounded", isGrounded);
         if(isGrounded) wallJumpsUsed = 0;
@@ -234,4 +251,66 @@ public class LaraControler : MonoBehaviour
             }
         }
     }
+
+
+
+    public void EnterActionPreformed(InputAction.CallbackContext context)
+    {
+        //Debug.Log("HEY");
+        if (onDoor)
+        {
+            //Debug.Log("LETS GO");
+            GameManager.SwitchScene(currentPortalScene);
+        }
+    
+    }
+
+    public void PauseActionPreformed(InputAction.CallbackContext context)
+    {
+        GameManager.Instance.PauseGame();
+    }
+
+    public void ResumeActionPreformed(InputAction.CallbackContext context)
+    {
+        GameManager.Instance.ResumeGame();
+    }
+
+    private void Die() {
+        MusicSource.Pause();
+        SFX_player.playDefeat();
+        GameManager.Instance.LoseGame();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Hazard"))
+        {
+            //Debug.Log("Im hit: "+ GameManager.Lives);
+            GameManager.Lives--;
+            SFX_player.playHurt();
+            if (GameManager.Lives == 0)
+            {
+               Die();   
+            }
+
+        }
+
+        if (other.gameObject.CompareTag("Door"))
+        {
+            onDoor = true;
+            // gets the name of the destination scene of the portal to be used in scene switching
+            currentPortalScene = other.gameObject.GetComponent<PortalControl>().portalToScene;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Door"))
+        {
+            onDoor = false;
+        }
+    }
+
+    
+
 }
