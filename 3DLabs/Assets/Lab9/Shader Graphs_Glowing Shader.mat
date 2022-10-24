@@ -41,7 +41,7 @@ Material:
     - _Smoothness: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Emission: {r: 300.51535, g: 0, b: 300.51535, a: 0}
+    - _Emission: {r: 664.3691, g: 0, b: 664.3691, a: 0}
     - _Emissive: {r: 1275, g: 0, b: 1275, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5849585087420773573
