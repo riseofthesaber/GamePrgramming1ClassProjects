@@ -92,7 +92,7 @@ public class PlayerControl : MonoBehaviour
     }
     private void ChangeCameraView(InputAction.CallbackContext context)
     {
-        Debug.Log("Hey");
+        //Debug.Log("Hey");
         if (ThirdPerson.activeInHierarchy)
         {
             ThirdPerson.SetActive(false);
