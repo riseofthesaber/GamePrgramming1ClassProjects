@@ -29,6 +29,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
+    [SerializeField] private PlayerInteractManager interactManager;
     private void RotateCameraAndCharacter()
     {
         // subtract from transform.position  the camera transform. position x and z but set y to zero.
@@ -71,6 +72,11 @@ public class PlayerControl : MonoBehaviour
         characterMove.Dance();
     }
 
+    private void InteractActionPreformed(InputAction.CallbackContext context)
+    {
+        interactManager.Interact();
+    }
+
     private void JumpActionPreformed(InputAction.CallbackContext context)
     {
         //Debug.Log("Hey");
@@ -89,7 +95,8 @@ public class PlayerControl : MonoBehaviour
 
         playerInputActions.Player.Jump.started += JumpActionPreformed;
         playerInputActions.Player.Jump.canceled += JumpActionCanceled;
-        playerInputActions.Player.Dance.started += DanceActionPreformed;
+
+        playerInputActions.Player.Interact.performed += InteractActionPreformed;
     }
 
     private void UnSubscribeInputActions()
@@ -100,6 +107,7 @@ public class PlayerControl : MonoBehaviour
 
         playerInputActions.Player.Jump.started -= JumpActionPreformed;
         playerInputActions.Player.Jump.canceled -= JumpActionCanceled;
+        playerInputActions.Player.Interact.performed -= InteractActionPreformed;
 
     }
 
