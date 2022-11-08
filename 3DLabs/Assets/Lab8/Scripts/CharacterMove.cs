@@ -43,7 +43,7 @@ public class CharacterMove : BaseMove
     [SerializeField]
     private Animator animator;
     private bool IsJumping;
-    private float DanceTimer = 0;
+    //private float DanceTimer = 0;
 
     // check if grounded
     private void CheckGround()

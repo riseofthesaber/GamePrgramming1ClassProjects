@@ -19,6 +19,8 @@ public class StateController : MonoBehaviour
 
     public Transform homeWayPoint;
 
+    public Transform Position;
+
     public Transform AIeyes;
     // max distance we can see
     public float lookRadius;

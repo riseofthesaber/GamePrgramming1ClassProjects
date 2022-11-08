@@ -8,6 +8,10 @@ public class Interactions : MonoBehaviour, IInteractable
 
     [Header("Which option is active")]
     [SerializeField] private int configuration;
+    enum Config { Debug, Sound, Animate };
+
+    [SerializeField] Config config;
+
     [Header("Option 1 debug.log")]
     [SerializeField] private string text;
     [Header("Option 2 play sound")]
@@ -18,7 +22,7 @@ public class Interactions : MonoBehaviour, IInteractable
 
     public void Interact(PlayerInteractManager pim, PlayerController pc)
     {
-        if (configuration == 1)
+        if (config== Config.Debug)
         {
             Debug.Log(text);
         }

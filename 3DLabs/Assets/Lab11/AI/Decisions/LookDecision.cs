@@ -16,7 +16,7 @@ public class LookDecision : Decision
     private bool Look(StateController controller)
     {
         RaycastHit hit;
-        Collider[] cols;
+        //Collider[] cols;
 
         if (Physics.SphereCast(controller.AIeyes.position, 
             controller.lookRadius, controller.AIeyes.forward,out hit,
