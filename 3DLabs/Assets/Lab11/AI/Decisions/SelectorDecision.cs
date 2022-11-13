@@ -7,10 +7,10 @@ public class SelectorDecision : Decision
     [SerializeField] private List<Decision> InputDecisions;
     public override bool Decide(StateController controller)
 {
-    // if any one of them is false return false, otherwise return true
+    // if any one of them is true return true, otherwise return false
     foreach (Decision decision in InputDecisions)
     {
-        if (decision)
+        if (decision.Decide(controller))
         {
             return true;
         }

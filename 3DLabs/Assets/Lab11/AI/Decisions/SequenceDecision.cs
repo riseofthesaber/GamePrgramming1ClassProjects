@@ -11,7 +11,7 @@ public class SequenceDecision : Decision
         // if any one of them is false return false, otherwise return true
         foreach(Decision decision in InputDecisions)
         {
-            if (decision!)
+            if (!decision.Decide(controller))
             {
                 return false;
             }

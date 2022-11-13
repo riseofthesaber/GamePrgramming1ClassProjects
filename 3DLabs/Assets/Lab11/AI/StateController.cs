@@ -28,6 +28,14 @@ public class StateController : MonoBehaviour
     public float lookRange;
     // object we are chasing
     public Transform chaseTarget;
+
+    public AIStats aiStats; 
+
+    // value that keeps track of the time
+    public float TimeInState = 0;
+
+    [SerializeField] private Color LookGizmoColor;
+
     private void Awake()
     {
         Setup();
@@ -45,6 +53,7 @@ public class StateController : MonoBehaviour
         if (isActive)
         {
             currentState.UpdateState(this);
+            TimeInState += Time.deltaTime;
         }
     }
 
@@ -61,13 +70,26 @@ public class StateController : MonoBehaviour
 
             currentState = nextState;
 
-            currentState.EnterState(this);  
+            OnEnterState();  
         }
     }
 
     private void OnExitState()
     {
         currentState.ExitState(this);
+    }
+
+    private void OnEnterState()
+    {
+        TimeInState = 0;
+        currentState.EnterState(this);
+    }
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = LookGizmoColor;
+
+        Gizmos.DrawWireSphere(AIeyes.transform.position + AIeyes.transform.forward * lookRange, lookRadius);
     }
 
 }

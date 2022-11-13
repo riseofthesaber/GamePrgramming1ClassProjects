@@ -22,9 +22,13 @@ public class LookDecision : Decision
             controller.lookRadius, controller.AIeyes.forward,out hit,
             controller.lookRange, characterLayerMask, QueryTriggerInteraction.Ignore))
         {
+            //Debug.Log("i see you");
             controller.chaseTarget = hit.transform;
             return true;
         }
-        return false;
+        else {
+            return false;
+        }
+       //return false;
     }
 }
