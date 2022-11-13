@@ -715,7 +715,7 @@ MonoBehaviour:
   Position: {fileID: 992687578}
   AIeyes: {fileID: 992687578}
   lookRadius: 1
-  lookRange: 3
+  lookRange: 8
   chaseTarget: {fileID: 1710256582}
   aiStats: {fileID: 11400000, guid: 490137fd4fab3ff47be5fe12ee8b490a, type: 2}
   TimeInState: 0
