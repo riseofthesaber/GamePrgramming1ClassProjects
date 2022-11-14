@@ -6,17 +6,17 @@ public class SelectorDecision : Decision
 {
     [SerializeField] private List<Decision> InputDecisions;
     public override bool Decide(StateController controller)
-{
-    // if any one of them is true return true, otherwise return false
-    foreach (Decision decision in InputDecisions)
     {
-        if (decision.Decide(controller))
+        // if any one of them is true return true, otherwise return false
+        foreach (Decision decision in InputDecisions)
         {
-            return true;
+            if (decision.Decide(controller))
+            {
+                return true;
+            }
         }
+        return false;
     }
-    return false;
-}
 
 
 }

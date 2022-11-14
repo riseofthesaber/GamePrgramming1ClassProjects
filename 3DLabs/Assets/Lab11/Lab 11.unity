@@ -720,6 +720,9 @@ MonoBehaviour:
   aiStats: {fileID: 11400000, guid: 490137fd4fab3ff47be5fe12ee8b490a, type: 2}
   TimeInState: 0
   LookGizmoColor: {r: 0, g: 0, b: 1, a: 1}
+  WaitForMin: 30
+  WaitForMax: 120
+  RandomTime: 0
 --- !u!1001 &1188182227
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -36,6 +36,10 @@ public class StateController : MonoBehaviour
 
     [SerializeField] private Color LookGizmoColor;
 
+    [SerializeField] private float WaitForMin;
+    [SerializeField] private float WaitForMax;
+    public float RandomTime;
+
     private void Awake()
     {
         Setup();
@@ -60,6 +64,13 @@ public class StateController : MonoBehaviour
     public void Setup()
     {
         // set up things here
+        Setrand();
+    }
+
+    private void Setrand()
+    {
+        // set up things here
+        RandomTime = Random.Range(WaitForMin, WaitForMax);
     }
 
     public void TransitionToState(State nextState)
@@ -81,6 +92,7 @@ public class StateController : MonoBehaviour
 
     private void OnEnterState()
     {
+        Setrand();
         TimeInState = 0;
         currentState.EnterState(this);
     }
