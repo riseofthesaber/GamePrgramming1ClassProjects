@@ -24,7 +24,9 @@ public class PlayerControl : MonoBehaviour
     [Header("Component/objct refrence")]
     [Tooltip("refrence to our movement component (drag here)")]
     [SerializeField] private BaseMove characterMove;
-    
+    [Header("Interact Manager")]
+    [SerializeField] private PlayerInteractManager interactManager;
+
     [Header("Character Animator")]
     [Tooltip("The animator used by this game object")]
     [SerializeField]
@@ -75,7 +77,10 @@ public class PlayerControl : MonoBehaviour
 
         characterMove.Move(cameraAdjustedInputDirection);
     }
-
+    private void InteractActionPreformed(InputAction.CallbackContext context)
+    {
+        interactManager.Interact();
+    }
     private void DanceActionPreformed(InputAction.CallbackContext context)
     {
         characterMove.Dance();
@@ -113,6 +118,8 @@ public class PlayerControl : MonoBehaviour
         //playerInputActions.Player.Dance.started += DanceActionPreformed;
 
         playerInputActions.Player.ChangeCamera.performed += ChangeCameraView;
+
+        playerInputActions.Player.Interact.performed += InteractActionPreformed;
     }
 
     private void UnSubscribeInputActions()
@@ -126,6 +133,7 @@ public class PlayerControl : MonoBehaviour
 
         playerInputActions.Player.ChangeCamera.performed -= ChangeCameraView;
 
+        playerInputActions.Player.Interact.performed -= InteractActionPreformed;
     }
 
     private void SwitchActionMap(string mapName)
