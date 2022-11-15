@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
-    private static GameManager Instance { get { return _instance; } }
+    public static GameManager Instance { get { return _instance; } }
 
-    private int Lives;
-
+    private static int _lives = 3;
+    public static int Lives { get { return _lives; } set { _lives = value; } }
     public enum GameState
     {
         Playing, Paused
