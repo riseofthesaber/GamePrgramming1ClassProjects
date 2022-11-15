@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 241b0bbb1e4953244bb4720d3bf070e2, type: 3}
-  m_Name: WanderState
+  m_Name: WaitAfterWander
   m_EditorClassIdentifier: 
   enterActions:
-  - {fileID: 11400000, guid: 640381b287b3e9b48a5b71122bac05a8, type: 2}
-  - {fileID: 11400000, guid: 48fdf129f1547b24984c19f251c8f723, type: 2}
+  - {fileID: 11400000, guid: 060d165732a5955418c6a5085572454a, type: 2}
+  - {fileID: 11400000, guid: 505e2085f2fc01d48a26ce4b236789a5, type: 2}
   exitActions: []
   updateActions: []
   transitions:
-  - decision: {fileID: 11400000, guid: 51fdc7cea5facf245bd54d5332c4934a, type: 2}
+  - decision: {fileID: 11400000, guid: a833dee5cdd7bf94fa5f4038491764e7, type: 2}
+    nextState: {fileID: 11400000, guid: f3ea860d0722f98498bc87d9542b67a9, type: 2}
+  - decision: {fileID: 11400000, guid: eaa768e08e8760e4390e662937a82ba6, type: 2}
     nextState: {fileID: 11400000, guid: 711451f61453c5b44bd14f2856b9c7d0, type: 2}
-  - decision: {fileID: 11400000, guid: e2a7694ade5c31643864e0fca5e32667, type: 2}
-    nextState: {fileID: 11400000, guid: 984451f25fda9a04d8c55de87b23ede3, type: 2}

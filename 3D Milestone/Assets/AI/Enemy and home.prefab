@@ -118,6 +118,7 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: 711451f61453c5b44bd14f2856b9c7d0, type: 2}
   isActive: 1
   navMeshAgent: {fileID: 6305536862056590938}
+  NearDistance: 1
   homeWayPoint: {fileID: 3276993734450903364}
   Position: {fileID: 2816767694955358764}
   AIeyes: {fileID: 2816767694955358764}
@@ -126,6 +127,7 @@ MonoBehaviour:
   chaseTarget: {fileID: 3276993734450903364}
   aiStats: {fileID: 11400000, guid: 490137fd4fab3ff47be5fe12ee8b490a, type: 2}
   TimeInState: 0
+  Target: {x: 0, y: 0, z: 0}
   LookGizmoColor: {r: 0, g: 0.0042738914, b: 1, a: 1}
   animator: {fileID: 2816767694955358766}
 --- !u!95 &2816767694955358766

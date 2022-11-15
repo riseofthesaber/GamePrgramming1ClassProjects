@@ -13,7 +13,7 @@ public class GoHomeAction : Action
     private void GoHome(StateController controller)
     {
         controller.navMeshAgent.destination = controller.homeWayPoint.position;
-
+        controller.Target = controller.homeWayPoint.position;
 
         controller.navMeshAgent.isStopped = false;  
     }

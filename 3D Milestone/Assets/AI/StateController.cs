@@ -17,6 +17,8 @@ public class StateController : MonoBehaviour
     [Tooltip("The nav mesh agent associated with our entity")]
     public NavMeshAgent navMeshAgent;
 
+    public float NearDistance;
+    
     public Transform homeWayPoint;
 
     public Transform Position;
@@ -33,6 +35,7 @@ public class StateController : MonoBehaviour
 
     // value that keeps track of the time
     public float TimeInState = 0;
+    public Vector3 Target;
 
     [SerializeField] private Color LookGizmoColor;
 

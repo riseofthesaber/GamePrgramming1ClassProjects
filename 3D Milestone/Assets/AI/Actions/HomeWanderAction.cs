@@ -25,7 +25,7 @@ public class HomeWanderAction : Action
         // Set the navigation destination and move towards it
         controller.navMeshAgent.destination = finalPosition;
         controller.navMeshAgent.isStopped = false;
-
+        controller.Target = finalPosition;
         Debug.Log("HomeWander agent set new destination at " + finalPosition);
     }
 }
