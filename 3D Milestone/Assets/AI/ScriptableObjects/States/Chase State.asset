@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 241b0bbb1e4953244bb4720d3bf070e2, type: 3}
   m_Name: Chase State
   m_EditorClassIdentifier: 
-  enterActions: []
+  enterActions:
+  - {fileID: 11400000, guid: 48fdf129f1547b24984c19f251c8f723, type: 2}
   exitActions: []
   updateActions:
   - {fileID: 11400000, guid: 86cd6ec76f1dab54696da1f595e26cfe, type: 2}

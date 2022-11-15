@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 241b0bbb1e4953244bb4720d3bf070e2, type: 3}
   m_Name: WaitState
   m_EditorClassIdentifier: 
-  enterActions: []
+  enterActions:
+  - {fileID: 11400000, guid: 060d165732a5955418c6a5085572454a, type: 2}
   exitActions: []
   updateActions: []
   transitions:
-  - decision: {fileID: 11400000, guid: eccb86d27aee00345b69f14822786246, type: 2}
+  - decision: {fileID: 11400000, guid: eaa768e08e8760e4390e662937a82ba6, type: 2}
     nextState: {fileID: 11400000, guid: 711451f61453c5b44bd14f2856b9c7d0, type: 2}
+  - decision: {fileID: 11400000, guid: 31052377885821243b683560d11aeac9, type: 2}
+    nextState: {fileID: 11400000, guid: a07dbc24b205d72458825d604e5078f3, type: 2}

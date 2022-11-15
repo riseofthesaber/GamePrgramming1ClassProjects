@@ -36,6 +36,11 @@ public class StateController : MonoBehaviour
 
     [SerializeField] private Color LookGizmoColor;
 
+    [Header("Animator")]
+    [Tooltip("The animator used by this game object")]
+    [SerializeField]
+    public Animator animator;
+
     private void Awake()
     {
         Setup();

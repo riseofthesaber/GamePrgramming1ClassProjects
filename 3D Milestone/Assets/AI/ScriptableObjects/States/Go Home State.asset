@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 241b0bbb1e4953244bb4720d3bf070e2, type: 3}
   m_Name: Go Home State
   m_EditorClassIdentifier: 
-  enterActions: []
+  enterActions:
+  - {fileID: 11400000, guid: 48fdf129f1547b24984c19f251c8f723, type: 2}
   exitActions: []
   updateActions:
   - {fileID: 11400000, guid: f9206770671841045ad506166ec01cbc, type: 2}
   transitions:
+  - decision: {fileID: 11400000, guid: 31052377885821243b683560d11aeac9, type: 2}
+    nextState: {fileID: 11400000, guid: 05d54461c6e29ef4982e76c55667e32c, type: 2}
   - decision: {fileID: 11400000, guid: eaa768e08e8760e4390e662937a82ba6, type: 2}
     nextState: {fileID: 11400000, guid: 711451f61453c5b44bd14f2856b9c7d0, type: 2}
