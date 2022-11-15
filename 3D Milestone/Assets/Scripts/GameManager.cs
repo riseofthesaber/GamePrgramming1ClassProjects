@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     private static GameManager Instance { get { return _instance; } }
 
+    private int Lives;
+
     public enum GameState
     {
         Playing, Paused
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public UnityEvent OnGamePaused;
     public UnityEvent OnGameResumed;
+    public UnityEvent OnGameLose;
 
     private void Awake()
     {
@@ -64,15 +67,30 @@ public class GameManager : MonoBehaviour
         ResumeGame();
     }
 
-    // Start is called before the first frame update
+    public void LoseGame()
+    {
+        CurrentGameState = GameState.Paused;
+        Time.timeScale = 0f;
+        OnGameLose.Invoke();
+    }
+
+    public static void SwitchScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
+
+    }
+
     void Start()
     {
-        
+        //gameManager.Instance
+        // works just like Vector2.right 
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
