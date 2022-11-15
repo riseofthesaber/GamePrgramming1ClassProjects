@@ -13,7 +13,7 @@ public class TriggerAnimation : Action
 
     private void Chase(StateController controller)
     {
-        Debug.Log(TriggerName);
+        //Debug.Log(TriggerName);
         controller.animator.SetTrigger(TriggerName);
 
     }

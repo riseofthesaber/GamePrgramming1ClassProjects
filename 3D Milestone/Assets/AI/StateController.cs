@@ -31,13 +31,20 @@ public class StateController : MonoBehaviour
     // object we are chasing
     public Transform chaseTarget;
 
-    public AIStats aiStats; 
+    public AIStats aiStats;
+
+    public float attackRadius;
+    // max range we can see
+    public float attackRange;
+    // object we are chasing
 
     // value that keeps track of the time
     public float TimeInState = 0;
     public Vector3 Target;
 
     [SerializeField] private Color LookGizmoColor;
+
+    [SerializeField] private Color AttackGizmoColor;
 
     [Header("Animator")]
     [Tooltip("The animator used by this game object")]
@@ -98,6 +105,10 @@ public class StateController : MonoBehaviour
         Gizmos.color = LookGizmoColor;
 
         Gizmos.DrawWireSphere(AIeyes.transform.position + AIeyes.transform.forward * lookRange, lookRadius);
+
+        Gizmos.color = AttackGizmoColor;
+
+        Gizmos.DrawWireSphere(AIeyes.transform.position + AIeyes.transform.forward * attackRange, attackRadius);
     }
 
 }

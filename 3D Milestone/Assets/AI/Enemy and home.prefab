@@ -126,9 +126,12 @@ MonoBehaviour:
   lookRange: 8
   chaseTarget: {fileID: 3276993734450903364}
   aiStats: {fileID: 11400000, guid: 490137fd4fab3ff47be5fe12ee8b490a, type: 2}
+  attackRadius: 4
+  attackRange: 1
   TimeInState: 0
   Target: {x: 0, y: 0, z: 0}
   LookGizmoColor: {r: 0, g: 0.0042738914, b: 1, a: 1}
+  AttackGizmoColor: {r: 1, g: 0, b: 0, a: 1}
   animator: {fileID: 2816767694955358766}
 --- !u!95 &2816767694955358766
 Animator:
