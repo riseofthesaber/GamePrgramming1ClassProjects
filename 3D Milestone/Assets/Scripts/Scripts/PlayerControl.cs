@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static GameManager;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -146,11 +147,26 @@ public class PlayerControl : MonoBehaviour
                 break;
             case "UI":
                 // fill this out yourself
+                playerInputActions.UI.Enable();
+                playerInputActions.Player.Disable();
                 break;
 
         }
 
     }
+    private void PauseActionPreformed(InputAction.CallbackContext context)
+    {
+      
+    }
+    private void CheckIfAlive()
+    {
+        if (GameManager.Lives <= 0)
+        {
+            playerInputActions.UI.Enable();
+
+        }
+    }
+
     private void Awake()
     {
         playerInputActions = new ControlInputs();
@@ -176,6 +192,8 @@ public class PlayerControl : MonoBehaviour
         RotateCameraAndCharacter();
 
         CalculateCameraRelativeInput();
+
+        CheckIfAlive();
     }
 
     public void FixedUpdate()
