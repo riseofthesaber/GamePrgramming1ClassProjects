@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Root" style="flex-direction: row; width: 100%; height: 100%;">
+        <ui:VisualElement style="width: 50%; height: 20%; flex-direction: column; margin-left: 1%;">
+            <ui:Label text="LIVES" display-tooltip-when-elided="true" style="-unity-font: none; -unity-font-style: bold; color: rgb(46, 204, 112); -unity-text-outline-width: 1px; font-size: 50%; -unity-text-outline-color: rgb(173, 192, 191); text-shadow: 1px 1px 0 rgb(81, 89, 89);" />
+            <ui:VisualElement name="Hearts-Container" style="height: 20%; width: 50%; margin-left: 0;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
