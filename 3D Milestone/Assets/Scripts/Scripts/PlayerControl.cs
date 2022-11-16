@@ -162,7 +162,7 @@ public class PlayerControl : MonoBehaviour
     }
     private void PauseActionPreformed(InputAction.CallbackContext context)
     {
-        //SwitchActionMap("UI");
+        SwitchActionMap("UI");
         Debug.Log("Pause");
         GameManager.Instance.PauseGame();
     }
@@ -170,7 +170,7 @@ public class PlayerControl : MonoBehaviour
 
     private void ResumeActionPreformed(InputAction.CallbackContext context)
     {
-        //SwitchActionMap("Player");
+        SwitchActionMap("Player");
         Debug.Log("Play");
         GameManager.Instance.ResumeGame();
     }
@@ -180,10 +180,13 @@ public class PlayerControl : MonoBehaviour
         {
             SwitchActionMap("UI");
             GameManager.Instance.LoseGame();
-
+            Die();
         }
     }
-
+    private void Die()
+    {
+        GameManager.SwitchScene("LoseScene");
+    }
     private void Awake()
     {
         playerInputActions = new ControlInputs();
@@ -217,7 +220,7 @@ public class PlayerControl : MonoBehaviour
     }
     public void Pause() {
         SwitchActionMap("UI");
-        }
+    }
     public void Play()
     {
         SwitchActionMap("Player");
