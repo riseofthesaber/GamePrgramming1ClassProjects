@@ -89,6 +89,15 @@ public partial class @ControlInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""df3fe399-9462-4021-b9f2-26ed368d4bd6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -355,6 +364,17 @@ public partial class @ControlInputs : IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b948c234-262f-43c7-a906-a37e30ba6299"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -363,9 +383,9 @@ public partial class @ControlInputs : IInputActionCollection2, IDisposable
             ""id"": ""cd62598b-0965-4dd5-907f-ca83ad24d1c1"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Play"",
                     ""type"": ""Button"",
-                    ""id"": ""1f5a2bab-b4f8-4988-99cb-19af01322e56"",
+                    ""id"": ""d3fb2d26-e3aa-484a-acb2-17846647c655"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -375,12 +395,12 @@ public partial class @ControlInputs : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""dc285326-d660-40be-b02f-87eec1761a4a"",
-                    ""path"": """",
+                    ""id"": ""09126d08-2c68-455f-a82a-edd809edec4a"",
+                    ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Play"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -398,9 +418,10 @@ public partial class @ControlInputs : IInputActionCollection2, IDisposable
         m_Player_Dance = m_Player.FindAction("Dance", throwIfNotFound: true);
         m_Player_ChangeCamera = m_Player.FindAction("ChangeCamera", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
+        m_UI_Play = m_UI.FindAction("Play", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -467,6 +488,7 @@ public partial class @ControlInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dance;
     private readonly InputAction m_Player_ChangeCamera;
     private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @ControlInputs m_Wrapper;
@@ -478,6 +500,7 @@ public partial class @ControlInputs : IInputActionCollection2, IDisposable
         public InputAction @Dance => m_Wrapper.m_Player_Dance;
         public InputAction @ChangeCamera => m_Wrapper.m_Player_ChangeCamera;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -508,6 +531,9 @@ public partial class @ControlInputs : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -533,6 +559,9 @@ public partial class @ControlInputs : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -541,12 +570,12 @@ public partial class @ControlInputs : IInputActionCollection2, IDisposable
     // UI
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
-    private readonly InputAction m_UI_Newaction;
+    private readonly InputAction m_UI_Play;
     public struct UIActions
     {
         private @ControlInputs m_Wrapper;
         public UIActions(@ControlInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_UI_Newaction;
+        public InputAction @Play => m_Wrapper.m_UI_Play;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -556,16 +585,16 @@ public partial class @ControlInputs : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_UIActionsCallbackInterface != null)
             {
-                @Newaction.started -= m_Wrapper.m_UIActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnNewaction;
+                @Play.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPlay;
+                @Play.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPlay;
+                @Play.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPlay;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
+                @Play.started += instance.OnPlay;
+                @Play.performed += instance.OnPlay;
+                @Play.canceled += instance.OnPlay;
             }
         }
     }
@@ -579,9 +608,10 @@ public partial class @ControlInputs : IInputActionCollection2, IDisposable
         void OnDance(InputAction.CallbackContext context);
         void OnChangeCamera(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnPlay(InputAction.CallbackContext context);
     }
 }

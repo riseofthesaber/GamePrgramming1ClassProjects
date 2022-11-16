@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "df3fe399-9462-4021-b9f2-26ed368d4bd6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -333,6 +342,17 @@
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b948c234-262f-43c7-a906-a37e30ba6299",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -341,9 +361,9 @@
             "id": "cd62598b-0965-4dd5-907f-ca83ad24d1c1",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Play",
                     "type": "Button",
-                    "id": "1f5a2bab-b4f8-4988-99cb-19af01322e56",
+                    "id": "d3fb2d26-e3aa-484a-acb2-17846647c655",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -353,12 +373,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "dc285326-d660-40be-b02f-87eec1761a4a",
-                    "path": "",
+                    "id": "09126d08-2c68-455f-a82a-edd809edec4a",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Play",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

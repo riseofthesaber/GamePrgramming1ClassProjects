@@ -35,9 +35,9 @@ public class PlayerControl : MonoBehaviour
     [Header("Cameras")]
     [SerializeField] private GameObject ThirdPerson;
     [SerializeField] private GameObject TopDown;
-/*    [SerializeField] private GameObject FirstPerson;
-    [Header("Character model")]
-    [SerializeField] private GameObject CharacterModel;*/
+    /*    [SerializeField] private GameObject FirstPerson;
+        [Header("Character model")]
+        [SerializeField] private GameObject CharacterModel;*/
 
     //[SerializeField] private CinemachineVirtualCamera FirstPerson;
 
@@ -102,9 +102,9 @@ public class PlayerControl : MonoBehaviour
         if (ThirdPerson.activeInHierarchy)
         {
             ThirdPerson.SetActive(false);
-        }else if (TopDown.activeInHierarchy)
+        } else if (TopDown.activeInHierarchy)
         {
-            ThirdPerson.SetActive(true); 
+            ThirdPerson.SetActive(true);
         }
     }
 
@@ -121,6 +121,8 @@ public class PlayerControl : MonoBehaviour
         playerInputActions.Player.ChangeCamera.performed += ChangeCameraView;
 
         playerInputActions.Player.Interact.performed += InteractActionPreformed;
+        playerInputActions.Player.Pause.performed += PauseActionPreformed;
+        playerInputActions.UI.Play.performed += ResumeActionPreformed;
     }
 
     private void UnSubscribeInputActions()
@@ -135,6 +137,8 @@ public class PlayerControl : MonoBehaviour
         playerInputActions.Player.ChangeCamera.performed -= ChangeCameraView;
 
         playerInputActions.Player.Interact.performed -= InteractActionPreformed;
+        playerInputActions.Player.Pause.performed -= PauseActionPreformed;
+        playerInputActions.UI.Play.performed -= ResumeActionPreformed;
     }
 
     private void SwitchActionMap(string mapName)
@@ -144,11 +148,13 @@ public class PlayerControl : MonoBehaviour
             case "Player":
                 playerInputActions.UI.Disable();
                 playerInputActions.Player.Enable();
+                Cursor.lockState = CursorLockMode.Locked;
                 break;
             case "UI":
                 // fill this out yourself
                 playerInputActions.UI.Enable();
                 playerInputActions.Player.Disable();
+                Cursor.lockState = CursorLockMode.None;
                 break;
 
         }
@@ -156,13 +162,24 @@ public class PlayerControl : MonoBehaviour
     }
     private void PauseActionPreformed(InputAction.CallbackContext context)
     {
-      
+        //SwitchActionMap("UI");
+        Debug.Log("Pause");
+        GameManager.Instance.PauseGame();
+    }
+
+
+    private void ResumeActionPreformed(InputAction.CallbackContext context)
+    {
+        //SwitchActionMap("Player");
+        Debug.Log("Play");
+        GameManager.Instance.ResumeGame();
     }
     private void CheckIfAlive()
     {
         if (GameManager.Lives <= 0)
         {
-            playerInputActions.UI.Enable();
+            SwitchActionMap("UI");
+            GameManager.Instance.LoseGame();
 
         }
     }
@@ -172,7 +189,10 @@ public class PlayerControl : MonoBehaviour
         playerInputActions = new ControlInputs();
         SubscribeInputActions();
 
-        SwitchActionMap("Player");
+        Play();
+        GameManager.Instance.OnGamePaused.AddListener(Pause);
+        //GameManager.Instance.OnGameLose.AddListener(Pause);
+        GameManager.Instance.OnGameResumed.AddListener(Play);
     }
 
     private void OnDestroy()
@@ -182,7 +202,7 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
 
     }
 
@@ -194,6 +214,13 @@ public class PlayerControl : MonoBehaviour
         CalculateCameraRelativeInput();
 
         CheckIfAlive();
+    }
+    public void Pause() {
+        SwitchActionMap("UI");
+        }
+    public void Play()
+    {
+        SwitchActionMap("Player");
     }
 
     public void FixedUpdate()
