@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Documents/PauseMenu.uss?fileID=7433441132597879392&amp;guid=45ed8fd743a351f4c97a1c051505f973&amp;type=3#PauseMenu" />
+    <ui:VisualElement name="root" style="width: 100%; height: 100%; align-items: center; justify-content: center;">
+        <ui:VisualElement name="Box" style="background-color: rgba(231, 231, 231, 0.73); width: 50%; height: 50%; align-items: center; border-left-color: rgb(56, 56, 56); border-right-color: rgb(56, 56, 56); border-top-color: rgb(56, 56, 56); border-bottom-color: rgb(56, 56, 56); border-left-width: 10px; border-right-width: 10px; border-top-width: 10px; border-bottom-width: 10px; border-top-left-radius: 100px; border-bottom-left-radius: 100px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; justify-content: center;">
+            <ui:Label text="The Game Is Paused" display-tooltip-when-elided="true" style="font-size: 75%; color: rgb(43, 42, 43); -unity-font-style: bold; margin-bottom: 6%;" />
+            <ui:Button text="Resume" display-tooltip-when-elided="true" name="Resume" class="Pause-button" style="font-size: 50%;" />
+            <ui:Button text="Quit To Menu" display-tooltip-when-elided="true" name="Quit" enable-rich-text="false" class="Pause-button" style="font-size: 50%;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
