@@ -1,0 +1,39 @@
+.BlueButton {
+    width: 50%;
+    height: 10%;
+    font-size: 50%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(44, 71, 98);
+    -unity-text-outline-width: 1px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    -unity-font-style: bold;
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.BlueButton:hover {
+    width: 50%;
+    height: 15%;
+    font-size: 50%;
+    color: rgb(202, 214, 238);
+    background-color: rgb(127, 9, 10);
+    -unity-text-outline-width: 1px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    -unity-font-style: bold;
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
