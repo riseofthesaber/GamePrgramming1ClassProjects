@@ -1,0 +1,36 @@
+.Pause-button {
+    width: 45%;
+    height: 20%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 50%;
+    background-color: rgba(251, 206, 251, 255);
+    color: rgba(40, 40, 40, 255);
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+}
+
+.Pause-button:hover {
+    width: 50%;
+    height: 25%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 50%;
+    background-color: rgb(178, 226, 255);
+    color: rgb(40, 40, 40);
+    border-left-width: 8px;
+    border-right-width: 8px;
+    border-top-width: 8px;
+    border-bottom-width: 8px;
+    border-left-color: rgba(44, 93, 135, 255);
+    border-right-color: rgba(44, 93, 135, 255);
+    border-top-color: rgba(44, 93, 135, 255);
+    border-bottom-color: rgba(44, 93, 135, 255);
+    -unity-font-style: bold;
+}
