@@ -39,9 +39,12 @@ public class PauseMenuControl : MonoBehaviour
 
     private void OnDestroy()
     {
-        // need to unsubscribe or else errors
-        resumeButton.clicked -= buttonPlay;
-        resumeButton.clicked -= buttonQuit;
+        if(resumeButton != null)
+        {
+            // need to unsubscribe or else errors
+            resumeButton.clicked -= buttonPlay;
+            resumeButton.clicked -= buttonQuit;
+        }
     }
 
 

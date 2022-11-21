@@ -43,8 +43,14 @@ public class WinScreenControl : MonoBehaviour
 
     private void OnDestroy()
     {
-        menuButton.clicked -= buttonPlay;
-        quitButton.clicked -= buttonQuit;
+        if (menuButton != null)
+        {
+            menuButton.clicked -= buttonPlay;
+        }
+        if (quitButton != null)
+        {
+            quitButton.clicked -= buttonQuit;
+        }
     }
 
     // Update is called once per frame

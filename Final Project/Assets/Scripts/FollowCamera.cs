@@ -71,7 +71,7 @@ public class FollowCamera : MonoBehaviour
 
         //transform.position = new Vector3(following.transform.position.x + offset.x+mod, following.transform.position.y + offset.y, transform.position.z);
 
-        transform.position = Vector3.MoveTowards(gameObject.transform.position, 
+        transform.position = Vector3.Lerp(transform.position, 
             new Vector3(following.transform.position.x + offset.x + mod, following.transform.position.y + offset.y, transform.position.z),
             followSpeed * Time.deltaTime);
 
