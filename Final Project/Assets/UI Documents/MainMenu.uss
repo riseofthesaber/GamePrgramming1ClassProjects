@@ -1,0 +1,52 @@
+.Title {
+    background-image: url('project://database/Assets/Sprites/UI/MMLogo.png?fileID=2800000&guid=07be39f330069f04dabad06de6421d44&type=3#MMLogo');
+    width: 50%;
+    height: 11%;
+    font-size: 12%;
+}
+
+.Title:hover {
+    background-image: url('project://database/Assets/Sprites/UI/MMLogo.png?fileID=2800000&guid=07be39f330069f04dabad06de6421d44&type=3#MMLogo');
+    width: 50%;
+    height: 11%;
+    -unity-background-image-tint-color: rgb(255, 0, 118);
+    scale: 1.5 1.5;
+    rotate: 15deg;
+    transition-timing-function: ease-in;
+    transition-duration: 1s;
+}
+
+.Button {
+    width: 50%;
+    height: 20%;
+    background-color: rgb(221, 0, 255);
+    font-size: 20%;
+    -unity-font-style: bold;
+    border-left-color: rgb(177, 166, 189);
+    border-right-color: rgb(177, 166, 189);
+    border-top-color: rgb(177, 166, 189);
+    border-bottom-color: rgb(177, 166, 189);
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    color: rgb(217, 243, 255);
+}
+
+.Button:hover {
+    width: 50%;
+    height: 20%;
+    background-color: rgb(236, 184, 74);
+    font-size: 20%;
+    -unity-font-style: bold;
+    border-left-color: rgb(177, 166, 189);
+    border-right-color: rgb(177, 166, 189);
+    border-top-color: rgb(177, 166, 189);
+    border-bottom-color: rgb(177, 166, 189);
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    color: rgb(217, 243, 255);
+    scale: 1.1 1.1;
+}
